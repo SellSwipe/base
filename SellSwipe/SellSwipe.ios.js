@@ -14,21 +14,15 @@ var {
   StyleSheet,
   Text,
   View,
+  NavigatorIOS,
 } = React;
-
-var styles = StyleSheet.create({         
-  container: {
-    flex: 1,
-  },
-});
-
 
 var SellSwipe = React.createClass({
   render() {
     return (
-      <React.NavigatorIOS  
-        style = {styles.container}
-        initialRoute = {{
+      <NavigatorIOS
+          style = {styles.container}
+          initialRoute = {{
           navigationBarHidden: true, 
           title: 'SellSwipe', 
           component: LogoSplashView,
@@ -38,7 +32,11 @@ var SellSwipe = React.createClass({
   }
 });    
 
-
+var styles = StyleSheet.create({         
+  container: {
+    flex: 1,
+  },
+});
 
 AppRegistry.registerComponent('SellSwipe', () => SellSwipe);
 
