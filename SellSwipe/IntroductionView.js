@@ -3,6 +3,8 @@
 var React = require('react-native');
 var BusinessAccountSetupView = require('./BusinessAccountSetupView');
 var UserAccountSetupView = require('./UserAccountSetupView');
+var CommunityView = require('./CommunityView');
+
 
 var {
   AppRegistry,
@@ -36,6 +38,14 @@ var IntroductionView = React.createClass({
       });
   },
 
+  _onPressSkip(){ 
+      this.props.navigator.push({
+          navigationBarHidden: true,
+          component: CommunityView,
+          title: ''
+      });
+  },
+
   render() {
     return (
       <View style = {styles.container}>
@@ -47,17 +57,17 @@ var IntroductionView = React.createClass({
         </Text>
         <TouchableHighlight style = {styles.businessLogin} onPress = {this._onPressBusiness}>
           <Text style = {styles.businessLoginText}>
-            Create Business Account
+            - Create Business Account
           </Text>
         </TouchableHighlight>
         
         <TouchableHighlight style = {styles.individualLogin} onPress = {this._onPressUser}>
           <Text style = {styles.individualLoginText}>
-            Create Individual Account
+            - Create Individual Account
           </Text>
         </TouchableHighlight>
         
-        <TouchableHighlight style = {styles.skipLogin}>
+        <TouchableHighlight style = {styles.skipLogin} onPress = {this._onPressSkip}>
           <Text style = {styles.skipLoginText}>
             Continue to SellSwipe
           </Text>

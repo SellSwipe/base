@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react-native');
-var IntroductionView = require('./IntroductionView');
+
 var {
 	AppRegistry,
   	StyleSheet,
@@ -10,28 +10,20 @@ var {
   	TouchableHighlight,
 } = React;
 
-var LogoSplashView = React.createClass({
+var TimelineView = React.createClass({
 
 	getInitialState(){
 		return {
 			searchString: 'help',
 		};
 	},
-
-  _onPress(){	
-		this.props.navigator.push({
-      navigationBarHidden: true,
-      component: IntroductionView,
-      title: ''
-    });
-  },
   
   render() {
     return (
       	<View style = {styles.container}>
-        	<TouchableHighlight style={styles.container} onPress = {this._onPress}>
+        	<TouchableHighlight style={styles.container}>
         		<Text style = {styles.logoText} >
-              SellSwipe Logo 
+              TODO : Discovery/Search View
             </Text>
         	</TouchableHighlight>
       	</View> 
@@ -55,4 +47,4 @@ var styles = StyleSheet.create({
   },
 });
 
-module.exports = LogoSplashView;
+module.exports = TimelineView;

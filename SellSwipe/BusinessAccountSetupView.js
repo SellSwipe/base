@@ -1,6 +1,8 @@
 'use strict';
 
 var React = require('react-native');
+var CommunityView = require('./CommunityView');
+
 
 var {
   AppRegistry,
@@ -17,6 +19,14 @@ var BusinessAccountSetupView = React.createClass({
     	return {
       		searchString: 'help',
     	};
+  	},
+
+  	_onPressBusiness(){ 
+      this.props.navigator.push({
+          navigationBarHidden: true,
+          component: CommunityView,
+          title: ''
+      });
   	},
 
   	render(){
@@ -49,6 +59,11 @@ var BusinessAccountSetupView = React.createClass({
   				<TextInput style={styles.website} onChangeText = {(websiteText) => this.setState({websiteText})} 
   								  value = {this.state.websiteText} placeholder = {'BUSINESS WEBSITE'}>
   				</TextInput>
+  				<TouchableHighlight style = {styles.community} onPress = {this._onPressBusiness}>
+          			<Text style = {styles.optional2}>
+            	    	GO TO COMMUNITY
+          			</Text>
+        		</TouchableHighlight>
         	</View>
         );
   	}
@@ -122,6 +137,10 @@ var styles = StyleSheet.create({
     	color: 'white',
     	paddingLeft: 140,
 	},
+	optional2: {
+		textAlign: 'center',
+		color: 'white',
+	},
 	address: {
 		position: 'absolute',
     	left: 40,
@@ -154,6 +173,14 @@ var styles = StyleSheet.create({
 		backgroundColor: 'white',
 		borderColor: 'gray',
 		borderWidth: 2,
+	},
+	community: {
+		position: 'absolute',
+    	left: 40,
+    	width: 334,
+    	height: 30,
+    	top: 640,
+    	paddingLeft: 10,
 	},
 });
 
